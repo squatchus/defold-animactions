@@ -1,0 +1,41 @@
+local act = require("shared.action")
+local domain = act.GO_DOMAIN()
+
+function init(self)
+  local id = "main:/logo"
+	local pulse = act.chain({
+		act.scaleTo(id, 1.100, 6/60),
+		act.scaleTo(id, 1.025, 10/60),
+		act.scaleTo(id, 1.050, 6/60),
+		act.scaleTo(id, 1.000, 6/60),
+		act.rotateTo(id, 15, 7/60),
+		act.rotateTo(id, -15, 14/60),
+		act.rotateTo(id, 0, 7/60)
+	})
+	act.run(domain, act.loop(pulse, act.FOREVER))
+end
+
+function final(self)
+    -- Add finalization code here
+    -- Remove this function if not needed
+end
+
+function update(self, dt)
+    -- Add update code here
+    -- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+    -- Add message-handling code here
+    -- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+    -- Add input-handling code here
+    -- Remove this function if not needed
+end
+
+function on_reload(self)
+    -- Add reload-handling code here
+    -- Remove this function if not needed
+end
