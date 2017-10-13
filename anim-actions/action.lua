@@ -446,6 +446,14 @@ function act.scaleTo(actor_id, scale, duration, complete)
   return action
 end
 
+function act.sizeTo(actor_id, width, height, duration, complete)
+  local action = animAction(actor_id, "size", size, duration, complete)
+  local vec = vmath.vector3(width, height, 1)
+  action.anim.go.to = vec
+  action.anim.gui.to = vec
+  return action
+end
+
 function act.rotateTo(actor_id, rotate, duration, complete)
   local action = animAction(actor_id, "rotate", rotate, duration, complete)
   action.anim.go.property = "euler.z"
