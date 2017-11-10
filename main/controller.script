@@ -1,4 +1,4 @@
-local act = require("shared.action")
+local act = require("anim-actions.action")
 local domain = act.GO_DOMAIN()
 
 function init(self)

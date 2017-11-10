@@ -1,4 +1,4 @@
-local act = require("shared.action")
+local act = require("anim-actions.action")
 local domain = act.GUI_DOMAIN()
 
 function init(self)
@@ -13,6 +13,13 @@ function init(self)
 		act.rotateTo(id, 0, 7/60)
 	})
 	act.run(domain, act.loop(pulse, act.FOREVER))
+
+  local pie = "pie"
+  local pieAnim = act.fillPieTo(pie, 1, 2, function()
+    gui.set_fill_angle(gui.get_node(pie), 0)
+  end)
+
+  act.run(domain, act.loop(pieAnim, act.FOREVER))
 end
 
 function final(self)

@@ -494,4 +494,11 @@ function act.colorToRGBA(actor_id, r,g,b,a, duration, complete)
   return action
 end
 
+function act.fillPieTo(actor_id, progress, duration, complete)
+  local action = animAction(actor_id, "progress", progress, duration, complete)
+  action.anim.gui.property = gui.PROP_FILL_ANGLE
+  action.anim.gui.to = -progress * 360
+  return action
+end
+
 return act
